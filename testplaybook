@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook K2 - IN - Artesanías del Futuro S1/6</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .note {
+            background-color: #ffeb3b;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner.optional {
+            background-color: #FF9800;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .banner .summary {
+            font-size: 0.9em;
+            color: white;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .content .section {
+            margin-bottom: 15px;
+        }
+        .content .section-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .content .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        .content .step-number {
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        .content .step-number-optional {
+            background-color: #FF9800;
+        }
+        .content .step-description {
+            flex-grow: 1;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .activity-icon {
+            margin-right: 10px;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '35') {
+                document.getElementById('activity-5').style.display = 'none';
+            } else if (selectedTime === '30') {
+                document.getElementById('activity-4').style.display = 'none';
+                document.getElementById('activity-5').style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body onload="updateActivities()">
+
+<h1>Playbook K2 - IN - Artesanías del Futuro S1/6</h1>
+<div class="note">
+    <p>Nota: Los títulos en verde indican actividades que se deben hacer. Los títulos en naranja indican actividades opcionales.</p>
+</div>
+
+<div class="dropdown">
+    <label for="time-select">Tiempo efectivo de Clase:</label>
+    <select id="time-select" onchange="updateActivities()">
+        <option value="40">40 minutos</option>
+        <option value="35">35 minutos</option>
+        <option value="30">30 minutos</option>
+    </select>
+</div>
+
+<h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 40 minutos</h2>
+
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('intro')">
+        <div class="title">
+            <span>📚 Actividad 1</span>
+            <span>⏰ Tiempo: 5 minutos</span>
+        </div>
+        <div class="subtitle">Preparación y Bienvenida</div>
+        <div class="summary">Saluda a los niños con el saludo de los artesanos y una canción de la cultura popular mexicana.</div>
+    </div>
+    <div id="intro" class="content">
+        <div class="section" style="background-color: #f0f0f0; padding: 10px;">
+            <h3>Objetivo</h3>
+            <p>Fomentar un sentido de pertenencia y comunidad desde el inicio de la clase.</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Guía</div>
+            
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-description">Saludo Gnius: El saludo individual ayuda a los niños a sentirse valorados y parte de la comunidad del aula.</div>
+            </div>
+            <div class="dialogue">"¡Hola (nombre del genio)! ¿Cómo está tu corazón hoy?"</div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-description">Ya que entren los niños, llama su atención.</div>
+            </div>
+            <strong>Forma 1:</strong>
+            <ul>
+                <li class="dialogue">Profesor: Mueve tus brazos arriba y di "Manos arri..."</li>
+                <li class="dialogue">Niños: Responden "ba"</li>
+                <li class="dialogue">Profesor: Mueve tus brazos hacia abajo y di "Manos aba..."</li>
+                <li class="dialogue">Niños: Responden "jo"</li>
+            </ul>
+            <strong>Forma 2:</strong>
+            <ul>
+                <li class="dialogue">Profesor: Pide a los niños que se pongan de pie y estiren los brazos como si fueran a volar.</li>
+                <li class="dialogue">Profesor: Di "Aletea como un pájaro" y muéstrales cómo mover los brazos como alas.</li>
+                <li class="dialogue">Niños: Imitan el movimiento.</li>
+                <li class="dialogue">Profesor: Di "Vuela alto" y levanta los brazos hacia arriba.</li>
+                <li class="dialogue">Niños: Levantan los brazos y se estiran hacia arriba.</li>
+            </ul>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-description">Canción: Comenzar la clase con la canción "De Colores".</div>
+            </div>
+            <p><strong>Letra de la canción:</strong></p>
+            <p>De colores, de colores<br>
+            Se visten los campos en la primavera<br>
+            De colores, de colores<br>
+            Son los pajarillos que vienen de afuera<br>
+            De colores, de colores<br>
+            Es el arco iris que vemos lucir<br>
+            Y por eso los grandes amores<br>
+            De muchos colores me gustan a mí<br>
+            Y por eso los grandes amores<br>
+            De muchos colores me gustan a mí.</p>
+            <p><strong>Enlace a la canción en YouTube:</strong> <a href="https://www.youtube.com/watch?v=ZpBYnLzftYo" target="_blank">De Colores - Canción Tradicional Mexicana</a></p>
+        </div>
+    </div>
+</div>
+
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('interactive-presentation')">
+        <div class="title">
+            <span>📚 Actividad 2</span>
+            <span>⏰ Tiempo: 10 minutos</span>
+        </div>
+        <div class="subtitle">Presentación Interactiva</div>
+        <div class="summary">Mostrar imágenes y videos de artesanías mexicanas.</div>
+    </div>
+    <div id="interactive-presentation" class="content">
+        <div class="section" style="background-color: #f0f0f0; padding: 10px;">
+            <h3>Objetivo</h3>
+            <p>Introducir a los niños a las artesanías mexicanas de manera interactiva y práctica.</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Guía</div>
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-description">Reproduce la presentación K2INM07:</div>
+            </div>
+            <div class="dialogue"><strong>SLIDE 1:</strong> "¿Se dieron cuenta que hoy los saludé de manera distinta? ¿Cómo les dije?"</div>
+            <div class="dialogue">Niños responden: "¿Cómo está tu corazón?"</div>
+            <div class="dialogue">Profesor: "Así se saludan en Tzotzil los artesanos de Chiapas. ¿Sabes lo que es un artesano?"</div>
+            <p><strong>Modera la discusión.</strong></p>
+
+            <div class="dialogue"><strong>SLIDE 2:</strong> Reproduce el siguiente Slide y lanza estas preguntas para reflexionar:</div>
+            <div class="dialogue">"¿Saben lo que es un alebrije?"</div>
+            <div class="dialogue">"¿Alguien sabe de dónde son los alebrijes?"</div>
+            <div class="dialogue">"¿Qué animal creen que es este alebrije?"</div>
+            <div class="dialogue">"¿Qué colores pueden ver en este alebrije?"</div>
+            <p><strong>Dinámica:</strong> Pasar una figura de alebrije para que los niños la toquen. Pedir a los niños que inventen un nombre para el alebrije.</p>
+
+            <div class="dialogue"><strong>SLIDE 3:</strong> Reproduce el siguiente Slide y lanza estas preguntas para reflexionar:</div>
+            <div class="dialogue">"¿Pueden imaginar qué sonido haría esta paloma si fuera real?"</div>
+            <p><strong>Dinámica:</strong> Pasar una figura de barro para que los niños la toquen. Invitar a los niños a hacer el sonido de una paloma.</p>
+
+            <div class="dialogue"><strong>SLIDE 4:</strong> Reproduce el siguiente Slide y lanza estas preguntas para reflexionar:</div>
+            <div class="dialogue">"¿Cuál es su juguete favorito de estos?"</div>
+            <div class="dialogue">"¿Han jugado con algún juguete parecido?"</div>
+            <p><strong>Dinámica:</strong> Pasar juguetes de madera para que los niños los toquen y jueguen. Pedir a los niños que imiten los movimientos de los juguetes.</p>
+
+            <div class="dialogue"><strong>SLIDE 5:</strong> Reproduce el siguiente Slide y lanza estas preguntas para reflexionar:</div>
+            <div class="dialogue">"¿Qué patrones o diseños pueden ver en este arte?"</div>
+            <div class="dialogue">"¿Qué colores les gustan más?"</div>
+            <p><strong>Dinámica:</strong> Pasar pequeñas muestras de cuentas para que los niños las toquen. Invitar a los niños a contar cuántos colores diferentes pueden encontrar en las muestras de cuentas.</p>
+
+            <div class="dialogue"><strong>SLIDE 6:</strong> Reproduce el siguiente Slide y lanza estas preguntas para reflexionar:</div>
+            <div class="dialogue">"¿Pueden ver cómo brilla esta pieza?"</div>
+            <div class="dialogue">"¿Qué forma les gusta más?"</div>
+            <p><strong>Dinámica:</strong> Pasar una pieza de barro negro para que los niños la toquen. Pedir a los niños que imaginen qué otros objetos se podrían hacer con barro negro.</p>
+        </div>
+    </div>
+</div>
+
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('history-context')">
+        <div class="title">
+            <span>📚 Actividad 3</span>
+            <span>⏰ Tiempo: 10 minutos</span>
+        </div>
+        <div class="subtitle">Historia y Contexto</div>
+        <div class="summary">Video sobre la historia de un artesano mexicano.</div>
+    </div>
+    <div id="history-context" class="content">
+        <div class="section" style="background-color: #f0f0f0; padding: 10px;">
+            <h3>Objetivo</h3>
+            <p>Introducir a los niños en la historia y el contexto cultural de las artesanías mexicanas.</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Guía</div>
+            
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-description">Reproduce el video de la historia del artesano.</div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-description">Preguntas para Reflexionar:</div>
+            </div>
+            <div class="dialogue">"¿Qué les parece más interesante de la historia de Don Pedro?"</div>
+            <div class="dialogue">"¿Alguno de ustedes ha visto un alebrije antes? ¿Dónde lo vieron?"</div>
+            <div class="dialogue">"Si pudieran hacer un alebrije combinando diferentes animales, ¿qué partes usarían?"</div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-description">Visualización:</div>
+            </div>
+            <p><strong>Actividad:</strong> Usar gestos y movimientos para visualizar el proceso de creación de las artesanías.</p>
+            <div class="dialogue">
+                "Ahora todos vamos a ser artesanos como Don Pedro. Imaginen que tienen una pieza de madera en sus manos. Vamos a tallarla con cuidado (hacer movimientos de tallado). Ahora, vamos a pintar las alas (hacer movimientos de pintura), luego el cuerpo (pintar), y finalmente la cola (pintar). ¡Qué bonito quedó nuestro alebrije combinado!"
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('exploration')">
+        <div class="title">
+            <span>📚 Actividad 4</span>
+            <span>⏰ Tiempo: 10 minutos</span>
+        </div>
+        <div class="subtitle">Exploración de Artesanías</div>
+        <div class="summary">Explorar diferentes artesanías mexicanas en estaciones interactivas.</div>
+    </div>
+    <div id="exploration" class="content">
+        <div class="section" style="background-color: #f0f0f0; padding: 10px;">
+            <h3>Objetivo</h3>
+            <p>Permitir a los niños explorar diferentes artesanías mexicanas de manera interactiva y práctica. Fomentar la curiosidad y el interés por las artesanías a través de la observación y la manipulación de objetos. Introducir ideas sobre cómo combinar las artesanías con tecnología para crear la artesanía del futuro.</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Guía</div>
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-description">Preparación de las Estaciones:</div>
+            </div>
+            <ul>
+                <li><strong>Estación 1: Alebrijes</strong>
+                    <ul>
+                        <li>Materiales: Réplicas de alebrijes o imágenes impresas.</li>
+                        <li>Ficha Informativa: "Los alebrijes son figuras coloridas que combinan partes de diferentes animales. Fueron creados por primera vez en Oaxaca."</li>
+                        <li>Posibilidad Tecnológica: "¿Qué cosas creativas podrían hacer los alebrijes con un poco de tecnología?"</li>
+                    </ul>
+                </li>
+                <li><strong>Estación 2: Palomas de barro de Amatenango del Valle</strong>
+                    <ul>
+                        <li>Materiales: Réplicas de palomas de barro o imágenes impresas.</li>
+                        <li>Ficha Informativa: "Las palomas de barro se hacen en Amatenango del Valle, Chiapas. Están pintadas a mano y son muy delicadas."</li>
+                        <li>Posibilidad Tecnológica: "¿Qué ideas se les ocurren para hacer estas palomas aún más especiales usando tecnología?"</li>
+                    </ul>
+                </li>
+                <li><strong>Estación 3: Juguetes de madera de Oaxaca</strong>
+                    <ul>
+                        <li>Materiales: Réplicas de juguetes de madera o imágenes impresas.</li>
+                        <li>Ficha Informativa: "Los juguetes de madera de Oaxaca son coloridos y están hechos a mano. Incluyen carritos, trompos y animales."</li>
+                        <li>Posibilidad Tecnológica: "¿Cómo podrían estos juguetes ser más divertidos con tecnología?"</li>
+                    </ul>
+                </li>
+                <li><strong>Estación 4: Arte Huichol</strong>
+                    <ul>
+                        <li>Materiales: Réplicas de arte huichol o imágenes impresas.</li>
+                        <li>Ficha Informativa: "El arte huichol está hecho con cuentas de colores y estambre, creando diseños muy detallados y coloridos."</li>
+                        <li>Posibilidad Tecnológica: "¿Qué cambios creativos podrían hacerle al arte huichol con tecnología?"</li>
+                    </ul>
+                </li>
+                <li><strong>Estación 5: Barro negro de Oaxaca</strong>
+                    <ul>
+                        <li>Materiales: Réplicas de piezas de barro negro o imágenes impresas.</li>
+                        <li>Ficha Informativa: "El barro negro de Oaxaca es una cerámica brillante y negra, hecha a mano y pulida para obtener su color único. Muchas piezas tienen perforaciones con formas y geometrías que dejan pasar la luz."</li>
+                        <li>Posibilidad Tecnológica: "¿Cómo podrían usar tecnología para hacer que estas piezas de barro negro sean aún más mágicas?"</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-description">Rotación por Estaciones:</div>
+            </div>
+            <p><strong>División en Grupos:</strong> Dividir a los niños en pequeños grupos de 3-4 niños.</p>
+            <p><strong>Rotación:</strong> Cada grupo pasará por cada estación durante 2 minutos.</p>
+            <p><strong>Interacción:</strong> Los niños pueden tocar las réplicas (si es posible), observar las imágenes y escuchar una breve explicación del profesor en cada estación.</p>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-description">Interacción Guiada:</div>
+            </div>
+            <div class="dialogue">"¿Qué les gusta más de esta artesanía?"</div>
+            <div class="dialogue">"¿Qué colores o formas pueden ver?"</div>
+            <p><strong>Actividad Sensorial:</strong> Permitir a los niños tocar los materiales (madera, barro, cuentas) para una experiencia táctil.</p>
+            <p><strong>Comentario del Profesor:</strong> Resaltar aspectos únicos de cada artesanía y su importancia cultural.</p>
+            <p><strong>Posibilidad Tecnológica:</strong> Introducir una idea abierta sobre cómo podría integrarse la tecnología con cada artesanía, animando a los niños a imaginar sus propias soluciones creativas.</p>
+        </div>
+    </div>
+</div>
+
+<div id="activity-5" class="activity optional">
+    <div class="banner optional" onclick="toggleContent('drawing')">
+        <div class="title">
+            <span>📚 Actividad 5</span>
+            <span>⏰ Tiempo: 10 minutos</span>
+        </div>
+        <div class="subtitle">Dibujando Artesanías</div>
+        <div class="summary">Dibujar una artesanía inspirada en las exploradas.</div>
+    </div>
+    <div id="drawing" class="content">
+        <div class="section" style="background-color: #f0f0f0; padding: 10px;">
+            <h3>Objetivo</h3>
+            <p>Fomentar la creatividad y la expresión artística de los niños. Consolidar lo aprendido sobre las artesanías a través del dibujo. Introducir la idea de la artesanía del futuro.</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Guía</div>
+
+            <div class="step">
+                <div class="step-number step-number-optional">1</div>
+                <div class="step-description">Introducción a la Actividad:</div>
+            </div>
+            <div class="dialogue">"Ahora que hemos explorado diferentes artesanías mexicanas, vamos a usar nuestra imaginación para dibujar nuestra propia artesanía. Pueden dibujar una de las artesanías que vimos hoy o crear algo completamente nuevo."</div>
+            <div class="dialogue">"Piensen en cómo sería su artesanía del futuro. ¿Qué formas, colores y detalles tendría?"</div>
+
+            <div class="step">
+                <div class="step-number step-number-optional">2</div>
+                <div class="step-description">Dibujando la Artesanía:</div>
+            </div>
+            <p><strong>Distribuir Materiales:</strong> Entregar a cada niño una hoja de papel y lápices de colores, crayones y marcadores.</p>
+            <p><strong>Música de Fondo:</strong> Poner música suave para crear un ambiente relajado y estimular la creatividad.</p>
+            <p><strong>Tiempo para Dibujar:</strong> Dar a los niños 8 minutos para dibujar su artesanía.</p>
+
+            <div class="step">
+                <div class="step-number step-number-optional">3</div>
+                <div class="step-description">Interacción y Apoyo:</div>
+            </div>
+            <p><strong>Profesor Circulando:</strong> Mientras los niños dibujan, el profesor puede caminar por el aula, observando y ofreciendo palabras de aliento.</p>
+            <div class="dialogue">"¿Qué colores estás usando para tu artesanía?"</div>
+            <div class="dialogue">"¿Qué formas estás creando?"</div>
+
+            <div class="step">
+                <div class="step-number step-number-optional">4</div>
+                <div class="step-description">Reflexión y Presentación:</div>
+            </div>
+            <p><strong>Tiempo para Compartir:</strong> Al final del tiempo de dibujo, invitar a algunos niños a compartir sus dibujos con la clase.</p>
+            <div class="dialogue">"¿Qué es lo que más les gusta de su dibujo?"</div>
+            <div class="dialogue">"¿Cómo sería esta artesanía en el futuro?"</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
